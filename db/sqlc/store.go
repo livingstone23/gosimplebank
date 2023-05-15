@@ -71,6 +71,7 @@ func (store *Store) TrasferTx(ctx context.Context, arg TransferTxParams) (Transf
 			return err
 		}
 
+		//From the procede money
 		result.FromEntry, err = q.CreateEntry(ctx, CreateEntryParams{
 			AccountID: arg.FromAccountId,
 			Amount:    -arg.Amount,
@@ -80,8 +81,9 @@ func (store *Store) TrasferTx(ctx context.Context, arg TransferTxParams) (Transf
 			return err
 		}
 
+		//Account receive money
 		result.ToEntry, err = q.CreateEntry(ctx, CreateEntryParams{
-			AccountID: arg.FromAccountId,
+			AccountID: arg.ToAccountId,
 			Amount:    arg.Amount,
 		})
 
