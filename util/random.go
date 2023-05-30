@@ -42,7 +42,7 @@ func RandomMoney() int64 {
 
 // RandomCurrency generate a random owner name
 func RandomCurrency() string {
-	currencies := []string{"EUR"}
+	currencies := []string{EUR, USD, CAD}
 	n := len(currencies)
 	return currencies[rand.Intn(n)]
 }
